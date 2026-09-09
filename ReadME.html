@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unixel Technologies — Making Computers Simple</title>
+<style>
+  :root {
+    --red: #ee2c31;
+    --red-glow: rgba(238, 44, 49, .35);
+    --bg: #0d1017;
+    --bg-alt: #141821;
+    --card: #1a1f2b;
+    --text: #e8eaef;
+    --muted: #9aa3b2;
+    --border: #262d3a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* Nav */
+  nav {
+    background: rgba(13, 16, 23, .9);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 6%;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .mark {
+    width: 38px; height: 38px;
+    background: var(--red);
+    border-radius: 50%;
+    display: grid; place-items: center;
+    color: #fff; font-weight: 800; font-size: .95rem;
+    letter-spacing: -.5px;
+  }
+  .logo { font-size: 1.1rem; font-weight: 700; letter-spacing: 1px; }
+  .logo span { color: var(--red); }
+  nav a { color: var(--muted); text-decoration: none; margin-left: 24px; font-size: .95rem; }
+  nav a:hover { color: #fff; }
+
+  /* Hero */
+  header {
+    background:
+      radial-gradient(ellipse 80% 60% at 70% -10%, rgba(238,44,49,.18), transparent),
+      var(--bg);
+    color: #fff;
+    text-align: center;
+    padding: 110px 6% 120px;
+  }
+  header .mark { width: 84px; height: 84px; font-size: 1.9rem; margin: 0 auto 30px; }
+  header h1 { font-size: clamp(2rem, 5vw, 3.4rem); margin-bottom: 14px; }
+  header h1 em { font-style: normal; color: var(--red); }
+  header p { font-size: 1.2rem; color: var(--muted); max-width: 640px; margin: 0 auto 36px; }
+  .btn {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    padding: 13px 32px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 0 24px var(--red-glow);
+    transition: transform .15s, box-shadow .15s;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 0 34px var(--red-glow); }
+  .btn.ghost { background: transparent; border: 2px solid var(--border); box-shadow: none; margin-left: 12px; }
+  .btn.ghost:hover { border-color: var(--red); color: var(--red); }
+
+  /* Terminal */
+  .terminal {
+    max-width: 520px;
+    margin: 0 auto 40px;
+    text-align: left;
+    background: #0a0d13;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0,0,0,.5);
+  }
+  .term-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #161b26;
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .dot { width: 11px; height: 11px; border-radius: 50%; background: #3a4252; }
+  .dot:nth-child(1) { background: #ff5f57; }
+  .dot:nth-child(2) { background: #febc2e; }
+  .dot:nth-child(3) { background: #28c840; }
+  .term-title { margin-left: 10px; font-size: .78rem; color: var(--muted); }
+  .term-body { padding: 18px 20px; font-family: 'Cascadia Code', Consolas, monospace; font-size: .92rem; }
+  .prompt { color: var(--red); font-weight: 700; }
+  .term-line { white-space: nowrap; }
+  .typed {
+    color: #7ee787;
+    animation: typing 1.6s steps(42) .6s forwards, blink 1s 2.4s step-end;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: bottom;
+    width: 0;
+    border-right: 2px solid transparent;
+  }
+  @keyframes typing { to { width: 42ch; } }
+  @keyframes blink { 50% { border-color: #7ee787; } }
+  .cursor {
+    display: inline-block;
+    width: 9px; height: 1.1em;
+    background: var(--red);
+    vertical-align: text-bottom;
+    animation: cursor-blink 1s step-end infinite;
+  }
+  @keyframes cursor-blink { 50% { opacity: 0; } }
+
+  /* Sections */
+  section { padding: 80px 6%; }
+  section.alt { background: var(--bg-alt); }
+  section h2 { font-size: 2rem; margin-bottom: 10px; color: #fff; }
+  .sub { color: var(--muted); margin-bottom: 40px; max-width: 700px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 30px;
+    transition: transform .15s, border-color .15s;
+  }
+  .card:hover { transform: translateY(-4px); border-color: var(--red); }
+  .card h3 { color: #fff; margin-bottom: 10px; }
+  .card p { color: var(--muted); }
+  .badge {
+    display: inline-block;
+    font-size: .72rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+  }
+  .badge.dev { background: rgba(238,44,49,.15); color: var(--red); border: 1px solid rgba(238,44,49,.4); }
+  .badge.live { background: rgba(63,185,80,.12); color: #56d364; border: 1px solid rgba(63,185,80,.4); }
+  .tag { display: inline-block; font-size: .75rem; color: var(--muted); margin-right: 14px; margin-top: 14px; }
+  .trailer-link {
+    display: inline-block;
+    margin-top: 14px;
+    color: var(--red);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: .92rem;
+  }
+  .trailer-link:hover { text-decoration: underline; }
+
+  /* GitHub banner */
+  .github {
+    background: #10141c;
+    border-top: 1px solid var(--border);
+    color: #fff;
+    text-align: center;
+    padding: 70px 6%;
+  }
+  .repo-links { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+  .repo-link {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px 22px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: .92rem;
+    transition: border-color .15s, color .15s;
+  }
+  .repo-link:hover { border-color: var(--red); color: var(--red); }
+  .github .lead { color: var(--muted); margin: 10px 0 8px; }
+
+  footer {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    text-align: center;
+    padding: 26px;
+    font-size: .85rem;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">
+    <div class="mark">UT</div>
+    <div class="logo">UNIXEL<span>·</span>TECH</div>
+  </div>
+  <div>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">GitHub</a>
+  </div>
+</nav>
+
+<header>
+  <div class="mark">UT</div>
+  <h1>Making Computers <em>Simple</em></h1>
+  <p>Unixel Technologies is an independent studio building tools that make computing and technology as simple as possible — with a little Linux philosophy behind it.</p>
+  <div class="terminal">
+    <div class="term-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="term-title">unixel — bash</span></div>
+    <div class="term-body">
+      <div class="term-line"><span class="prompt">$</span> unixel --version</div>
+      <div class="term-line"><span class="typed">Unixel CLI 3.1.0-wip — Making Computers Simple</span></div>
+      <div class="term-line"><span class="prompt">$</span> <span class="cursor"></span></div>
+    </div>
+  </div>
+  <a class="btn" href="#projects">Explore Projects</a>
+  <a class="btn ghost" href="https://github.com/Unixel-Technologies">Visit GitHub ↗</a>
+</header>
+
+<section id="about">
+  <h2>Who We Are</h2>
+  <p class="sub">A one-person, indie studio founded on a few core beliefs — do things well, keep them open, and never take control away from the user.</p>
+  <div class="grid">
+    <div class="card">
+      <h3>Simplicity First</h3>
+      <p>Every project starts with one question: can this be simpler? If the answer is yes, we simplify.</p>
+    </div>
+    <div class="card">
+      <h3>Linux Philosophy</h3>
+      <p>Small, focused tools that work together — open, transparent, and built the way free software was meant to be.</p>
+    </div>
+    <div class="card">
+      <h3>Control Your System</h3>
+      <p>Your computer should obey you — not the other way around. No lock-downs, no walls, no deciding-for-you like Windows, macOS, or ChromeOS. You own it.</p>
+    </div>
+    <div class="card">
+      <h3>Built in the Open</h3>
+      <p>Everything is developed publicly on GitHub. Inspect it, learn from it, improve it.</p>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="alt">
+  <h2>What We're Building</h2>
+  <p class="sub">Current projects from the studio.</p>
+  <div class="grid">
+    <div class="card">
+      <span class="badge dev">In Development</span>
+      <h3>Unixel CLI</h3>
+      <p>A command-line companion that keeps computing simple from the terminal. Version 3.1 is currently a work in progress.</p>
+      <span class="tag">v3.1 · WIP</span>
+    </div>
+    <div class="card">
+      <span class="badge live">Available</span>
+      <h3>B-Box</h3>
+      <p>Short for <strong>Blue-boxed</strong> — the GUI-focused sibling of Unixel. A friendly, open desktop experience designed with kids in mind, making computers approachable from day one.</p>
+      <span class="tag">GUI · For Kids · Blue-boxed</span>
+      <a class="trailer-link" href="https://github.com/Unixel-Technologies/B-Box/blob/main/Trailer.mp4" target="_blank">▶ Watch the Trailer</a>
+    </div>
+  </div>
+</section>
+
+<div class="github" id="contact">
+  <h2>Follow the Work</h2>
+  <p class="lead">Star the repos, watch releases, and contribute.</p>
+  <div class="repo-links">
+    <a class="repo-link" href="https://github.com/Unixel-Technologies">Unixel-Technologies (Org)</a>
+    <a class="repo-link" href="https://github.com/Unixel-Technologies/Unixel-CLI">Unixel-CLI</a>
+    <a class="repo-link" href="https://github.com/Unixel-Technologies/B-Box">B-Box</a>
+  </div>
+</div>
+
+<footer>
+  © 2026 Unixel Technologies · Making Computers Simple
+</footer>
+
+</body>
+</html>
