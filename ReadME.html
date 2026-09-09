@@ -23,6 +23,24 @@
     line-height: 1.6;
   }
 
+  /* Utility bar (Dell-style top strip) */
+  .utility {
+    background: #07090d;
+    border-bottom: 1px solid var(--border);
+    font-size: .8rem;
+    padding: 7px 6%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 22px;
+  }
+  .utility a {
+    color: var(--muted);
+    text-decoration: none;
+    transition: color .15s;
+  }
+  .utility a:hover { color: var(--red); }
+  .utility .util-label { color: #5a6472; margin-right: auto; }
+
   /* Nav */
   nav {
     background: rgba(13, 16, 23, .9);
@@ -165,10 +183,40 @@
   }
   .trailer-link:hover { text-decoration: underline; }
 
+  /* Stats band (Dell-style credibility strip) */
+  .stats {
+    background: #10141c;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0;
+    padding: 46px 6%;
+  }
+  .stat {
+    flex: 1 1 200px;
+    text-align: center;
+    padding: 10px 24px;
+    border-left: 1px solid var(--border);
+  }
+  .stat:first-child { border-left: none; }
+  .stat .num {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--red);
+    line-height: 1.2;
+  }
+  .stat .label {
+    font-size: .85rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
   /* GitHub banner */
   .github {
     background: #10141c;
-    border-top: 1px solid var(--border);
     color: #fff;
     text-align: center;
     padding: 70px 6%;
@@ -187,17 +235,62 @@
   .repo-link:hover { border-color: var(--red); color: var(--red); }
   .github .lead { color: var(--muted); margin: 10px 0 8px; }
 
-  footer {
-    background: var(--bg);
+  /* Mega-footer (Dell/Intel-style multi-column footer) */
+  .mega-footer {
+    background: #0a0d13;
     border-top: 1px solid var(--border);
-    text-align: center;
-    padding: 26px;
-    font-size: .85rem;
-    color: var(--muted);
+    padding: 60px 6% 0;
   }
+  .footer-cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .footer-col h4 {
+    color: #fff;
+    font-size: .85rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 16px;
+  }
+  .footer-col a {
+    display: block;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: .9rem;
+    padding: 5px 0;
+    transition: color .15s;
+  }
+  .footer-col a:hover { color: var(--red); }
+  .footer-col p { color: var(--muted); font-size: .9rem; }
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 50px auto 0;
+    border-top: 1px solid var(--border);
+    padding: 22px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    font-size: .82rem;
+    color: #5a6472;
+  }
+  .footer-bottom a { color: var(--muted); text-decoration: none; margin-left: 18px; }
+  .footer-bottom a:hover { color: var(--red); }
 </style>
 </head>
 <body>
+
+<!-- Utility bar -->
+<div class="utility">
+  <span class="util-label">Making Computers Simple</span>
+  <a href="https://github.com/Unixel-Technologies">GitHub</a>
+  <a href="https://github.com/Unixel-Technologies/Unixel-CLI">For Developers</a>
+  <a href="https://github.com/Unixel-Technologies/B-Box">For Families</a>
+</div>
 
 <nav>
   <div class="brand">
@@ -270,6 +363,26 @@
   </div>
 </section>
 
+<!-- Stats band -->
+<div class="stats">
+  <div class="stat">
+    <div class="num">1</div>
+    <div class="label">Indie Studio</div>
+  </div>
+  <div class="stat">
+    <div class="num">2</div>
+    <div class="label">Active Projects</div>
+  </div>
+  <div class="stat">
+    <div class="num">100%</div>
+    <div class="label">Open Source</div>
+  </div>
+  <div class="stat">
+    <div class="num">0</div>
+    <div class="label">Lockdowns</div>
+  </div>
+</div>
+
 <div class="github" id="contact">
   <h2>Follow the Work</h2>
   <p class="lead">Star the repos, watch releases, and contribute.</p>
@@ -280,9 +393,38 @@
   </div>
 </div>
 
-<footer>
-  © 2026 Unixel Technologies · Making Computers Simple
+<!-- Mega footer -->
+<footer class="mega-footer">
+  <div class="footer-cols">
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a href="https://github.com/Unixel-Technologies/Unixel-CLI">Unixel CLI</a>
+      <a href="https://github.com/Unixel-Technologies/B-Box">B-Box (Blue-boxed)</a>
+    </div>
+    <div class="footer-col">
+      <h4>Studio</h4>
+      <a href="#about">About Us</a>
+      <a href="#projects">Projects</a>
+    </div>
+    <div class="footer-col">
+      <h4>Community</h4>
+      <a href="https://github.com/Unixel-Technologies">GitHub Organization</a>
+      <a href="https://github.com/Unixel-Technologies/Unixel-CLI/issues">Report an Issue</a>
+    </div>
+    <div class="footer-col">
+      <h4>Unixel Technologies</h4>
+      <p>An independent studio making computers simple — built in the open, powered by Linux philosophy.</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Unixel Technologies · Making Computers Simple</span>
+    <span>
+      <a href="https://github.com/Unixel-Technologies">GitHub ↗</a>
+      <a href="#about">Back to top ↑</a>
+    </span>
+  </div>
 </footer>
 
 </body>
 </html>
+
