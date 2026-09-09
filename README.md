@@ -10,7 +10,7 @@ Welcome to Unixel Technologies — where technology works for people, not the ot
 ![License](https://img.shields.io/badge/license-open--source-blue)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)
 ![Volunteers Welcome](https://img.shields.io/badge/volunteers-welcome-purple)
-[![CI](https://github.com/Unixel-Technologies/YOUR-REPO/actions/workflows/ci.yml/badge.svg)](https://github.com/Unixel-Technologies/welcome/.github/workflows/ci.yml)
+[![CI](https://github.com/Unixel-Technologies/welcome/.github/workflows/ci.yml/badge.svg)](https://github.com/Unixel-Technologies/welcome/.github/workflows/ci.yml)
 
 </div>
 
