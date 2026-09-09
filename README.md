@@ -6,6 +6,11 @@
 
 Welcome to Unixel Technologies — where technology works for people, not the other way around.
 
+![Status](https://img.shields.io/badge/status-v3.1--in--development-purple)
+![License](https://img.shields.io/badge/license-open--source-blue)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)
+![Volunteers Welcome](https://img.shields.io/badge/volunteers-welcome-purple)
+
 </div>
 
 ---
@@ -76,6 +81,32 @@ Unixel is built in the open, and community feedback drives us forward.
 ### 🤝 Join Us
 
 At Unixel Technologies, we're always open to new developers joining the team — or even a small one-time helping hand from a volunteer. Whether you want to contribute code, docs, ideas, or just a quick fix, there's a place for you here. Every contribution counts, no matter the size.
+
+### 🛠️ How to Contribute
+
+New to open source? No problem — here's the standard workflow, step by step:
+
+1. **Fork** this repository to your own GitHub account (click the **Fork** button at the top right).
+2. **Clone** your fork locally:
+
+        git clone https://github.com/YOUR-USERNAME/YOUR-FORK.git
+
+3. **Create a new branch** for your change — one feature or fix per branch:
+
+        git checkout -b my-awesome-feature
+
+4. **Make your changes** — code, docs, examples, anything helpful.
+5. **Commit** with a clear message:
+
+        git commit -m "Add: short description of what you changed"
+
+6. **Push** to your branch:
+
+        git push origin my-branch-name
+
+7. **Open a Pull Request** against this repository, and describe what you changed and why.
+
+Not sure where to start? Check the **Issues** tab for open items, or just open a new issue and ask — we're happy to point you in the right direction. First-timers are more than welcome.
 
 ### 🐛 Found a problem?
 
