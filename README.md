@@ -73,6 +73,10 @@ At Unixel, we value open platforms over locked-down ones. Open systems teach you
 
 Unixel is built in the open, and community feedback drives us forward.
 
+### 🤝 Join Us
+
+At Unixel Technologies, we're always open to new developers joining the team — or even a small one-time helping hand from a volunteer. Whether you want to contribute code, docs, ideas, or just a quick fix, there's a place for you here. Every contribution counts, no matter the size.
+
 ### 🐛 Found a problem?
 
 Please report it using the **Issues** tab of this repository. To help us resolve it faster, include:
@@ -90,7 +94,5 @@ The more detail you provide, the faster we can help.
 *Unixel Technologies — Making Computers Simple.*
 
 **Built with ❤️ and open-source values.**
-
-</div>
 
 </div>
