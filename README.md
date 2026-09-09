@@ -1,4 +1,4 @@
-# welcome
-Welcome to B-box
-short for Blue-Boxed, 
-this is for Making programs for easyer tech learning and people who dont know much about tech.
+# welcome to Unixel Technologies
+this is for making computers and tech simple as a possible.
+<br>
+inspited by dell Technologies inc and unix, somwhat linux.
